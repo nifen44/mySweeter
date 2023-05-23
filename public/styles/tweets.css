@@ -1,8 +1,8 @@
-.tweets {
+.tweets-container {
     border: 2px solid;
     margin-top: 20px;
 }
-.tweets footer {
+.tweets-container footer {
     display: flex;
     justify-content: space-between;
     margin-top: 10px;
@@ -28,16 +28,16 @@
     padding: 10px;
 }
 
-.tweets-content {
+.tweets-header-content {
     border-bottom: 2px solid black;
     font-weight: 600;
 }
 
-.tweets-content > p {
+.tweets-header-content > p {
     padding: 10px;
 }
 
-.tweets article{
+.tweets-container article{
     padding: 10px;
 }
 

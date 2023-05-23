@@ -23,10 +23,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:ital,wght@0,300;0,600;1,300;1,600&display=swap" rel="stylesheet">
 
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" type="text/css" />
 
+    <!-- Timeago -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timeago/1.6.7/jquery.timeago.min.js"></script>
+    
     <!-- App JS -->
-    <script type="text/javascript" src="/scripts/client.js"></script>
   </head>
 
   <body>
@@ -52,31 +55,31 @@
     <main class="container">
       <section class="new-tweet">
         <h2>Compose Tweet</h2>
-        <form method="POST" action="/tweets/">
+        <form id="new-tweet-form" method="POST" action="/tweets/">
           <label for="tweet-text" class="tweet-lab">What are you humming about?</label>
-          <textarea name="text" id="tweet-text" class="tweet-text"></textarea>
+          <textarea name="tweet" id="tweet-text" class="tweet-text"></textarea>
           <div class="new-tweet-footer">
             <button type="submit" class="save-tweet-btn">Tweet</button>
             <output name="counter" class="counter" for="tweet-text">140</output>
           </div>
         </form>
       </section>
-      <section class="tweets">
-        <article>
+      <section class="tweets-container">
+        <!-- <article>
           <header class="tweets-header">
             <div>
-              <i class="fa-solid fa-user-tie"></i>
-              <span>Rhoda Jacobs</span>
+              <img src="" class="tweets-header-avatar"/>
+              <span class="tweets-header-name"></span>
             </div>
             <div>
-              <span>@Mrs Jacobs</span>
+              <span class="tweets-header-handler"></span>
             </div>
           </header>
-          <div class="tweets-content">
-            <p>Hello world!</p>
+          <div class="tweets-header-content">
+            <p></p>
           </div>
           <footer>
-            <span class="time-span">
+            <span class="tweets-header-created">
               10 days ago
             </span>
             <span class="icon-span">
@@ -85,9 +88,12 @@
               <button><i class="fa-solid fa-heart"></i></button>
             </span>
           </footer>
-        </article>
+        </article> -->
       </section>
     </main>
+    
     <script src="scripts/composer-char-counter.js"></script>
+    <script src="scripts/client.js"></script>
+    
   </body>
 </html>
