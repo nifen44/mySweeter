@@ -1,0 +1,46 @@
+.tweets {
+    border: 2px solid;
+    margin-top: 20px;
+}
+.tweets footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px;
+}
+
+.icon-span{
+    display: flex;
+    gap: 10px;
+}
+
+.icon-span button{
+    border: none;
+    outline: none;
+}
+
+.tweets-header{
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    padding: 10px;
+}
+
+.tweets-content {
+    border-bottom: 2px solid black;
+    font-weight: 600;
+}
+
+.tweets-content > p {
+    padding: 10px;
+}
+
+.tweets article{
+    padding: 10px;
+}
+
+.icon-span i:hover {
+    color: #D69621;
+}
