@@ -1,13 +1,19 @@
-.tweets-container {
+/* .tweets-container {
     border: 2px solid;
     margin-top: 20px;
-}
+} */
 .tweets-container footer {
     display: flex;
     justify-content: space-between;
     margin-top: 10px;
     font-size: 14px;
     font-weight: 600;
+    padding: 10px;
+}
+
+.tweets-article{
+    border: 3px solid;
+    margin-top: 20px;
     padding: 10px;
 }
 
@@ -24,20 +30,25 @@
 .tweets-header{
     display: flex;
     justify-content: space-between;
+    align-items: center;
     font-size: 20px;
     padding: 10px;
 }
 
+.tweets-header-left{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 15px;
+}
+
 .tweets-header-content {
-    border-bottom: 2px solid black;
+    border-bottom: 3px solid black;
     font-weight: 600;
+    padding: 0 10px;
 }
 
 .tweets-header-content > p {
-    padding: 10px;
-}
-
-.tweets-container article{
     padding: 10px;
 }
 
