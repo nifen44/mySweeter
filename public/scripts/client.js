@@ -50,12 +50,33 @@ const loadTweets = ()=>{
     
 }
 
-loadTweets();
+
 
 $("#new-tweet-form").on("submit", function(event){
+    event.preventDefault();
+    console.log($('.counter').val());
+
+    if($('.counter').val() < 0){
+        $('.tweet-error').append("⚠ You enter too much text, please limit it. ⚠ ");
+        $('.tweet-error').slideDown(400, function(){
+            
+        });
+
+        return;
+    }else if($('.counter').val() == 140){
+        $('.tweet-error').append("⚠ You haven't text anything, please text somthing. ⚠ ");
+        $('.tweet-error').slideDown(400, function(){
+            
+        });
+        return;
+    }
+
+    $('.tweet-error').slideUp(200, function(){
+        $('.tweet-error').empty();
+    });
+
     const str = $("#new-tweet-form").serialize();
     console.log(str);
-    event.preventDefault();
 
     $.ajax({
         type: 'POST',
@@ -91,4 +112,26 @@ $("#new-tweet-form").on("submit", function(event){
             $('.tweets-container').prepend(articleHtml);
         }
     })
+})
+
+
+
+$(()=>{
+    loadTweets();
+    
+    $('.add-tweet-btn').on('click', function(){
+        $('.new-tweet').slideDown(400, function(){
+            $('.tweet-text').focus();
+        });
+    });
+
+    (function chevronDownloop() {
+        $('.add-tweet-btn').animate({top: '70px'}, {
+            duration: 1000,
+            complete: function() {
+                $('.add-tweet-btn').animate({top: '80px'}, {
+                    duration: 1000, 
+                    complete: chevronDownloop});
+            }});
+    })();
 })

@@ -22,3 +22,13 @@ nav span {
     justify-content: center;
     align-items: center;
 }
+
+.add-tweet-btn{
+    background-color: transparent;
+    position: absolute;
+}
+
+.add-tweet-btn:hover{
+    cursor: pointer;
+}
+

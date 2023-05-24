@@ -1,3 +1,6 @@
+.new-tweet{
+    display: none;
+}
 .new-tweet form{
     display: flex;
     flex-direction: column;
@@ -13,7 +16,7 @@
     background-color: inherit;
     border-bottom: 3px solid black;
     font-weight: 600;
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 .new-tweet-footer{

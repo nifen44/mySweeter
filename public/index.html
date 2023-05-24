@@ -38,7 +38,7 @@
       <span>tweeter</span>
       <div class="nav-right">
         <div><b>Write</b> a new tweet</div>
-        <i class="fa-solid fa-angles-down" style="color: red"></i>
+        <span class="add-tweet-btn"><i class="fa-solid fa-angles-down" style="color: red"></i></span>
       </div>  
     </nav>
     <header class="avatar">
@@ -52,9 +52,11 @@
     </header>
 
     <!-- Page-specific (main) content here -->
+    <p class="tweet-error">
+    </p>
     <main class="container">
       <section class="new-tweet">
-        <h2>Compose Tweet</h2>
+        <!-- <h2>Compose Tweet</h2> -->
         <form id="new-tweet-form" method="POST" action="/tweets/">
           <label for="tweet-text" class="tweet-lab">What are you humming about?</label>
           <textarea name="tweet" id="tweet-text" class="tweet-text"></textarea>
@@ -65,30 +67,6 @@
         </form>
       </section>
       <section class="tweets-container">
-        <!-- <article class="tweets-article">
-          <header class="tweets-header">
-            <div>
-              <img src="" class="tweets-header-avatar"/>
-              <span class="tweets-header-name"></span>
-            </div>
-            <div>
-              <span class="tweets-header-handler"></span>
-            </div>
-          </header>
-          <div class="tweets-header-content">
-            <p></p>
-          </div>
-          <footer>
-            <span class="tweets-header-created">
-              10 days ago
-            </span>
-            <span class="icon-span">
-              <button><i class="fa-solid fa-flag"></i></button>
-              <button><i class="fa-solid fa-retweet"></i></button>
-              <button><i class="fa-solid fa-heart"></i></button>
-            </span>
-          </footer>
-        </article> -->
       </section>
     </main>
     
