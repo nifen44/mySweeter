@@ -30,3 +30,34 @@ main{
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+ .whole-tweet-container{
+  display: flex;
+ }
+
+ @media only screen and (min-width: 1024px){
+  .whole-tweet-container{
+      flex-direction: row;
+      gap:50px;
+      justify-content: center;
+      align-items: center;
+   }
+
+   .avatar{
+    width: 40%;
+   }
+
+   .container{
+    width: 60%;
+    transform: translateY(100px);
+    margin-right: 40px;
+   }
+ }
+
+ @media only screen and (max-width: 1024px){
+  .whole-tweet-container{
+    flex-direction: column;
+  }
+  nav.tweet-nav{
+    background: transparent;
+  }
+ }

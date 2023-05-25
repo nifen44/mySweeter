@@ -1,4 +1,4 @@
-nav{
+.tweet-nav{
     height: 120px;
     width: 100%;
     background-color: #4056A1;
@@ -13,7 +13,7 @@ nav{
     transition: all 0.3s;
 }
 
-nav span {
+.tweet-nav span {
     font-family: Bungee;
 }
 

@@ -4,16 +4,17 @@
     <!-- Meta Information -->
     <title>Tweeter - Home Page</title>
 
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
+
     <!-- External CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
 
     <!-- App CSS -->
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
-
     <link rel="stylesheet" href="/styles/tweets.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -34,41 +35,46 @@
 
   <body>
     <!-- Top nav bar (fixed) -->
-    <nav>
+    <nav class="tweet-nav">
       <span>tweeter</span>
       <div class="nav-right">
         <div><b>Write</b> a new tweet</div>
         <span class="add-tweet-btn"><i class="fa-solid fa-angles-down" style="color: red"></i></span>
       </div>  
     </nav>
-    <header class="avatar">
-      <div>
-        <img src="/images/profile-hex.png">
-      </div>
-      <br>
-      <div>
-        <h2>Your Name</h2>
-      </div>
-    </header>
 
-    <!-- Page-specific (main) content here -->
-    <p class="tweet-error">
-    </p>
-    <main class="container">
-      <section class="new-tweet">
-        <!-- <h2>Compose Tweet</h2> -->
-        <form id="new-tweet-form" method="POST" action="/tweets/">
-          <label for="tweet-text" class="tweet-lab">What are you humming about?</label>
-          <textarea name="tweet" id="tweet-text" class="tweet-text"></textarea>
-          <div class="new-tweet-footer">
-            <button type="submit" class="save-tweet-btn">Tweet</button>
-            <output name="counter" class="counter" for="tweet-text">140</output>
-          </div>
-        </form>
-      </section>
-      <section class="tweets-container">
-      </section>
-    </main>
+    <div class="whole-tweet-container">
+      <header class="avatar">
+        <div>
+          <img src="/images/profile-hex.png">
+        </div>
+        <br>
+        <div>
+          <h2>Your Name</h2>
+        </div>
+      </header>
+  
+      <!-- Page-specific (main) content here -->
+      
+      <main class="container">
+        <p class="tweet-error">
+        </p>
+        <section class="new-tweet">
+          <!-- <h2>Compose Tweet</h2> -->
+          <form id="new-tweet-form" method="POST" action="/tweets/">
+            <label for="tweet-text" class="tweet-lab">What are you humming about?</label>
+            <textarea name="tweet" id="tweet-text" class="tweet-text"></textarea>
+            <div class="new-tweet-footer">
+              <button type="submit" class="save-tweet-btn">Tweet</button>
+              <output name="counter" class="counter" for="tweet-text">140</output>
+            </div>
+          </form>
+        </section>
+        <section class="tweets-container">
+        </section>
+      </main>
+    </div>
+    
     <button class="scroll-up-btn"><i class="fa-solid fa-angles-up"></i></button>
     
     <script src="scripts/composer-char-counter.js"></script>
