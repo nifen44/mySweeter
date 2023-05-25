@@ -10,6 +10,7 @@ nav{
     align-items: center;
 
     position: fixed;
+    transition: all 0.3s;
 }
 
 nav span {

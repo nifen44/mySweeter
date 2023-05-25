@@ -134,4 +134,27 @@ $(()=>{
                     complete: chevronDownloop});
             }});
     })();
+
+    $(window).on( "scroll", function() {
+        // console.log($(document.body).scrollTop());
+        if($(window).scrollTop() == 0){
+            $('.scroll-up-btn').hide();
+            $('nav').css({
+                "opacity": "1"
+            });
+        }else{
+            $('.scroll-up-btn').show();
+            $('nav').css({
+                "opacity": "0"
+            });
+        
+        }
+    } );
+
+    $(".scroll-up-btn").click(function() {
+        $("html, body").animate({ 
+            scrollTop: 0
+        }, "fast");
+        return false;
+    });
 })
