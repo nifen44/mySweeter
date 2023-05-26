@@ -39,18 +39,22 @@ main{
       flex-direction: row;
       gap:50px;
       justify-content: center;
-      align-items: center;
+      align-items: flex-start;
+      padding-top: 160px;
    }
 
    .avatar{
     width: 40%;
+    margin-left: 50px;
    }
 
    .container{
     width: 60%;
-    transform: translateY(100px);
+    /* transform: translateY(-70px); */
     margin-right: 40px;
+
    }
+
  }
 
  @media only screen and (max-width: 1024px){
@@ -59,5 +63,8 @@ main{
   }
   nav.tweet-nav{
     background: transparent;
+  }
+  .container {
+    margin-top: 40px;
   }
  }

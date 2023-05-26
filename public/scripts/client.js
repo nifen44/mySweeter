@@ -5,7 +5,7 @@
  */
 
 const createTweetElement = (data)=>{
-    let eachTweet = $(`
+  let eachTweet = $(`
     <article class="tweets-article">
     <header class="tweets-header">
         <div class="tweets-header-left">
@@ -31,59 +31,62 @@ const createTweetElement = (data)=>{
     </footer>
     </article>
 `);
-    return eachTweet;
-}
+  return eachTweet;
+};
 
 const renderTweets = (users)=>{
-    let eachTweet = '';
-    users.forEach(tweet=>{
-        eachTweet = createTweetElement(tweet);
-        $('.tweets-container').append(eachTweet);
-    })
+  let eachTweet = '';
+  users.forEach(tweet=>{
+    eachTweet = createTweetElement(tweet);
+    $('.tweets-container').append(eachTweet);
+  });
     
-}
+};
 
 const loadTweets = ()=>{
-    $.get('/tweets/', function(data){
-        renderTweets(data);
-    })
+  $.get('/tweets/', function(data) {
+    renderTweets(data);
+  });
     
-}
+};
 
 
 
-$("#new-tweet-form").on("submit", function(event){
-    event.preventDefault();
-    console.log($('.counter').val());
+$("#new-tweet-form").on("submit", function(event) {
+  event.preventDefault();
 
-    if($('.counter').val() < 0){
-        $('.tweet-error').append("⚠ You enter too much text, please limit it. ⚠ ");
-        $('.tweet-error').slideDown(400, function(){
+    // if the counter value shows negative, show some error and can not submit the form
+  if ($('.counter').val() < 0) {
+    $('.tweet-error').append("⚠ You enter too much text, please limit it. ⚠ ");
+    $('.tweet-error').slideDown(400, function() {
             
-        });
-
-        return;
-    }else if($('.counter').val() == 140){
-        $('.tweet-error').append("⚠ You haven't text anything, please text somthing. ⚠ ");
-        $('.tweet-error').slideDown(400, function(){
-            
-        });
-        return;
-    }
-
-    $('.tweet-error').slideUp(200, function(){
-        $('.tweet-error').empty();
     });
 
-    const str = $("#new-tweet-form").serialize();
-    console.log(str);
+    return;
+  } else if ($('.counter').val() == 140) {// if user didn't enter anything, show some error and can not submit the form
+    $('.tweet-error').append("⚠ You haven't text yet, please text something. ⚠ ");
+    $('.tweet-error').slideDown(400, function() {
+            
+    });
+    return;
+  }
 
-    $.ajax({
-        type: 'POST',
-        url: '/tweets/',
-        data: str,
-        success: function(data, status){
-            const articleHtml = `
+  // when user enter is correct, reset the container by removing the error message
+  $('.tweet-error').slideUp(200, function() {
+    $('.tweet-error').empty();
+  });
+
+  // get the user input
+  const str = $("#new-tweet-form").serialize();
+  console.log(str);
+
+  // do ajax post submit
+  $.ajax({
+    type: 'POST',
+    url: '/tweets/',
+    data: str,
+    success: function(data) {
+      const articleHtml = `
             <article class="tweets-article">
             <header class="tweets-header">
                 <div class="tweets-header-left">
@@ -108,53 +111,62 @@ $("#new-tweet-form").on("submit", function(event){
                 </span>
             </footer>
             </article>
-        `
-            $('.tweets-container').prepend(articleHtml);
-        }
-    })
-})
+        `;
+      $('.tweets-container').prepend(articleHtml);
+
+      $('.tweet-text').val('');
+      $('.tweet-text').focus();
+    }
+  });
+});
 
 
 
 $(()=>{
-    loadTweets();
-    
-    $('.add-tweet-btn').on('click', function(){
-        $('.new-tweet').slideDown(400, function(){
-            $('.tweet-text').focus();
-        });
-    });
+    // load all tweets
+  loadTweets();
 
-    (function chevronDownloop() {
-        $('.add-tweet-btn').animate({top: '70px'}, {
-            duration: 1000,
-            complete: function() {
-                $('.add-tweet-btn').animate({top: '80px'}, {
-                    duration: 1000, 
-                    complete: chevronDownloop});
-            }});
-    })();
+  // the animation of add tweet btn
+  (function chevronDownloop() {
+    $('.add-tweet-btn').animate({top: '70px'}, {
+      duration: 1000,
+      complete: function() {
+        $('.add-tweet-btn').animate({top: '80px'}, {
+          duration: 1000,
+          complete: chevronDownloop});
+      }});
+  })();
 
-    $(window).on( "scroll", function() {
-        // console.log($(document.body).scrollTop());
-        if($(window).scrollTop() == 0){
-            $('.scroll-up-btn').hide();
-            $('nav').css({
-                "opacity": "1"
-            });
-        }else{
-            $('.scroll-up-btn').show();
-            $('nav').css({
-                "opacity": "0"
-            });
+  // when scorll the container, the scroll up button shows, and the navigation bar gets dispear
+  $(window).on("scroll", function() {
+    // console.log($(document.body).scrollTop());
+    if ($(window).scrollTop() == 0) {
+      $('.scroll-up-btn').hide();
+      $('nav').css({
+        "opacity": "1"
+      });
+    } else {
+      $('.scroll-up-btn').show();
+      $('nav').css({
+        "opacity": "0"
+      });
         
-        }
-    } );
+    }
+  });
 
-    $(".scroll-up-btn").click(function() {
-        $("html, body").animate({ 
-            scrollTop: 0
-        }, "fast");
-        return false;
+  // add event listener to that red scroll up button
+  $(".scroll-up-btn").click(function() {
+    $("html, body").animate({
+      scrollTop: 0
+    }, "fast");
+    return false;
+  });
+
+// add event listener to add tweet btn
+$('.add-tweet-btn').on('click', function() {
+    $('.new-tweet').slideDown(500, function() {
+      $('.tweet-text').focus();
     });
-})
+  });
+  
+});
