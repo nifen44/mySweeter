@@ -57,6 +57,7 @@ $("#new-tweet-form").on("submit", function(event) {
 
     // if the counter value shows negative, show some error and can not submit the form
   if ($('.counter').val() < 0) {
+    $('.tweet-error').empty();
     $('.tweet-error').append("⚠ You enter too much text, please limit it. ⚠ ");
     $('.tweet-error').slideDown(400, function() {
             
@@ -64,6 +65,7 @@ $("#new-tweet-form").on("submit", function(event) {
 
     return;
   } else if ($('.counter').val() == 140) {// if user didn't enter anything, show some error and can not submit the form
+    $('.tweet-error').empty();
     $('.tweet-error').append("⚠ You haven't text yet, please text something. ⚠ ");
     $('.tweet-error').slideDown(400, function() {
             
@@ -71,6 +73,8 @@ $("#new-tweet-form").on("submit", function(event) {
     return;
   }
 
+  // when user enter is correct, reset the counter to 140
+  $('.counter').val(140);
   // when user enter is correct, reset the container by removing the error message
   $('.tweet-error').slideUp(200, function() {
     $('.tweet-error').empty();
@@ -168,5 +172,6 @@ $('.add-tweet-btn').on('click', function() {
       $('.tweet-text').focus();
     });
   });
+  
   
 });

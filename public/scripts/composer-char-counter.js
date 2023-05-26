@@ -1,20 +1,10 @@
 let leftWord = 140;
 
 // counter user enter charater number
-$(".tweet-text").on('keydown', function(event){
+$(".tweet-text").on('input', function(event){
     const key = event.keyCode || event.charCode;
 
-    // if user enter backspace or delete key, need to add counter value
-    if(key == 8 || key == 46){
-        
-        if(leftWord<140){
-            leftWord++;
-        }
-    }else{
-        // if user enter other charater, need to minus counter value
-        leftWord--;
-        
-    }
+    leftWord = 140 - event.currentTarget.value.length;
     
     $('.counter').val(leftWord);
 
