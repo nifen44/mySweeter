@@ -6,13 +6,16 @@ This repository is the starter code for the project: Students will fork and clon
 
 ## Getting Started
 
-1. [Create](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template) a new repository using this repository as a template.
-2. Clone your repository onto your local device.
-3. Install dependencies using the `npm install` command.
-3. Start the web server using the `npm run local` command. The app will be served at <http://localhost:8080/>.
-4. Go to <http://localhost:8080/> in your browser.
+!["Desktop screen tweets lists"](https://github.com/nifen44/tinyapp/blob/master/docs/add_url.png?raw=true)
+!["Laptop screen tweets lists"](https://github.com/nifen44/tinyapp/blob/master/docs/create_url.png?raw=true)
+!["New tweets Error Info"](https://github.com/nifen44/tinyapp/blob/master/docs/url_list.png?raw=true)
 
 ## Dependencies
 
+- Node.js
 - Express
-- Node 5.10.x or above
+- Timeago
+- Md5
+- Nodemon
+- Chance
+
