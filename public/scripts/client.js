@@ -166,12 +166,20 @@ $(()=>{
     return false;
   });
 
-// add event listener to add tweet btn
-$('.add-tweet-btn').on('click', function() {
+  // add event listener to add tweet btn
+  $('.add-tweet-btn').on('click', function() {
     $('.new-tweet').slideDown(500, function() {
       $('.tweet-text').focus();
     });
   });
   
+  // // when hover one tweet, should have some shadow 
+  // $( "tweets-article" ).hover(
+  //   function() {
+  //     $( this ).addClass( "tweet-hover" );
+  //   }, function() {
+  //     $( this ).removeClass( "tweet-hover" );
+  //   }
+  // );
   
 });
